@@ -219,7 +219,8 @@ var Leaderboard = function(paper, x, y) {
     },
     setOrder: function(name, i) {
       var p = players[name];
-      p.moveTo(playerY(i));
+      if(p)
+        p.moveTo(playerY(i));
     },
     count: function() {
       return countPlayers();
