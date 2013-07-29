@@ -19,8 +19,7 @@ If you're desperate to help, reach out by [creating an issue](../../issues/new),
 
 ## Running the final game
 
-It's easiest to follow along in the tutorial, but if you'd like to run the final game follow these steps. It's
-assumed you have [leiningen](https://github.com/technomancy/leiningen#installation) installed.
+It's easiest to follow along in the tutorial, but if you'd like to run the final game follow these steps. These samples require a [leiningen](https://github.com/technomancy/leiningen#installation) installation with version >= 2.2.0.
 
 ```bash
 git clone https://github.com/pedestal/app-tutorial
