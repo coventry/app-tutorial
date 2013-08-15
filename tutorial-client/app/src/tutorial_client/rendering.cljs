@@ -56,14 +56,18 @@
   [[:node-create [:main] (render-template :tutorial-client-page
                                           (constantly {:my-counter "0"}))]
    [:node-destroy [:main] h/default-destroy]
-   ;; This causes [:main :my-counter] to be sent when 
+   ;; When behavior/init-main is called as a result of the :init
+   ;; message, that causes a transform-enable message with :inc as the
+   ;; topic and [:my-counter] as the list of paths to send messages
+   ;; to.  add-send-on-click then sets things up so that those
+   ;; messages are automatically sent when the button is clicked.
    [:transform-enable [:main :my-counter] (log-add-send-on-click "inc-button")]
    [:transform-disable [:main :my-counter] (h/remove-send-on-click "inc-button")]
    [:value [:main :*] render-value]
    [:value [:pedestal :debug :*] render-value]
 
    ;; Because publish-counter sends a ":swap" message, with topic
-   ;; [:other-counters `counter-id] (I read this out of the js/console
+   ;; [:other-counters counter-id] (I read this out of the js/console
    ;; log), :other-counters needs to be created.
    [:node-create [:main :other-counters] render-other-counters-element]
    ;; The path to the new counter needs to be created because it's
